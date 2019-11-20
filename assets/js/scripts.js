@@ -122,10 +122,12 @@ function init() {
       enabledCategories = [
         'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
       ];
+      MapBase.addMarkers();
     }
     else {
       $.cookie("quick-markers", "false");
       enabledCategories = categories;
+      MapBase.addMarkers();
     }
   });
 
