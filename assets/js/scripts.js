@@ -22,11 +22,7 @@ var plantsCategories = [
 
 var plantsDisabled = [];
 
-//var enabledCategories = categories;
-
-var enabledCategories = [
-  'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
-];
+var enabledCategories = categories;
 
 var categoryButtons = document.getElementsByClassName("menu-option clickable");
 
@@ -123,9 +119,13 @@ function init() {
   $('#quick').on('change', function() {
     if (this.value == 1) {
       $.cookie("quick-markers", "true");
+      enabledCategories = [
+        'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
+      ];
     }
     else {
       $.cookie("quick-markers", "false");
+      enabledCategories = categories;
     }
   });
 
