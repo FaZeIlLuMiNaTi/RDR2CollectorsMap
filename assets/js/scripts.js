@@ -6,7 +6,6 @@ var itemMarkersLayer = new L.LayerGroup();
 var searchTerms = [];
 
 var resetMarkersDaily;
-var quickMarkers;
 
 var collectedItems = [];
 
@@ -114,20 +113,21 @@ function init() {
       expires: 999
     });
 
-  if (typeof $.cookie('quick-markers-only') === 'undefined')
-    $.cookie('quick-markers-only', 'false', {
-      expires: 999
-    });
-
   resetMarkersDaily = $.cookie('removed-markers-daily') == 'true';
   $("#reset-markers").val(resetMarkersDaily.toString());
-
-  quickMarkers = $.cookie('quick-markers-only') == 'true';
-  $("#quick").val(quickMarkers.toString());
 
   var curDate = new Date();
   date = curDate.getUTCFullYear() + '-' + (curDate.getUTCMonth() + 1) + '-' + curDate.getUTCDate();
 
+
+  $('#quick').on('change', function() {
+    if (this.value == 1) {
+      $.cookie("quick-markers", "true");
+    }
+    else {
+      $.cookie("quick-markers", "false");
+    }
+  });
 
 
   collectedItems = collectedItems.filter(function(el) {
