@@ -122,6 +122,18 @@ function init() {
       enabledCategories = [
         'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
       ];
+      $.each(categoryButtons, function(key, value) {
+        $(value).children('span').addClass("disabled")
+      });
+      $('*[data-type="american_flowers"]').children('span').toggleClass('disabled');
+      $('*[data-type="antique_bottles"]').children('span').toggleClass('disabled');
+      $('*[data-type="arrowhead"]').children('span').toggleClass('disabled');
+      $('*[data-type="bird_eggs"]').children('span').toggleClass('disabled');
+      $('*[data-type="family_heirlooms"]').children('span').toggleClass('disabled');
+      $('*[data-type="card_cups"]').children('span').toggleClass('disabled');
+      $('*[data-type="card_pentacles"]').children('span').toggleClass('disabled');
+      $('*[data-type="card_swords"]').children('span').toggleClass('disabled');
+      $('*[data-type="card_wands"]').children('span').toggleClass('disabled');
       MapBase.addMarkers();
     }
     else {
