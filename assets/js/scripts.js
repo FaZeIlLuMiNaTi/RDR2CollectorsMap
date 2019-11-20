@@ -22,7 +22,12 @@ var plantsCategories = [
 
 var plantsDisabled = [];
 
-var enabledCategories = categories;
+//var enabledCategories = categories;
+
+var categories = [
+  'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
+];
+
 var categoryButtons = document.getElementsByClassName("menu-option clickable");
 
 var treasureData = [];
