@@ -24,7 +24,7 @@ var plantsDisabled = [];
 
 //var enabledCategories = categories;
 
-var categories = [
+var enabledCategories = [
   'coin', 'lost_bracelet', 'lost_earrings', 'lost_necklaces', 'lost_ring', 'nazar', 'fast_travel'
 ];
 
