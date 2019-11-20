@@ -126,7 +126,9 @@ function init() {
     }
     else {
       $.cookie("quick-markers", "false");
-      enabledCategories = categories;
+      enabledCategories = enabledCategories.filter(function(item) {
+        return item !== "random" && item !== "treasure";
+      }
       MapBase.addMarkers();
     }
   });
