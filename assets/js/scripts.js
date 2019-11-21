@@ -117,7 +117,8 @@ function init() {
 
   var doQuick = $.cookie("quick-markers");
   if (doQuick == "true") {
-    $('#quick').value = 1
+    $('#quick').value = 1;
+    $('#quick').change();
   }
 
   $('#quick').on('change', function() {
