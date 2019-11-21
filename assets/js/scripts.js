@@ -115,6 +115,10 @@ function init() {
   var curDate = new Date();
   date = curDate.getUTCFullYear() + '-' + (curDate.getUTCMonth() + 1) + '-' + curDate.getUTCDate();
 
+  var doQuick = $.cookie("quick-markers");
+  if (doQuick == "true") {
+    $('#quick').value = 1
+  }
 
   $('#quick').on('change', function() {
     if (this.value == 1) {
