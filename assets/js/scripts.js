@@ -12,14 +12,16 @@ var collectedItems = [];
 var categories = [
   'american_flowers', 'antique_bottles', 'arrowhead', 'bird_eggs', 'coin', 'family_heirlooms', 'lost_bracelet',
   'lost_earrings', 'lost_necklaces', 'lost_ring', 'card_cups', 'card_pentacles', 'card_swords', 'card_wands', 'nazar',
-  'fast_travel', 'treasure', 'random'
+  'fast_travel', 'treasure', 'random', 'treasure_hunter', 'tree_map'
 ];
 
 var plantsCategories = [
   'texas_bluebonnet', 'bitterweed', 'agarita', 'wild_rhubarb', 'cardinal',
   'creek_plum', 'blood_flower', 'chocolate_daisy', 'wisteria'
 ];
-
+var categoriesDisabledByDefault = [
+  'treasure', 'random', 'treasure_hunter', 'tree_map'
+]
 var plantsDisabled = [];
 
 var enabledCategories = categories;
@@ -29,6 +31,9 @@ var categoryButtons = document.getElementsByClassName("menu-option clickable");
 var treasureData = [];
 var treasureMarkers = [];
 var treasuresLayer = new L.LayerGroup();
+
+var encountersMarkers = [];
+var encountersLayer = new L.LayerGroup();
 
 var routesData = [];
 var polylines;
@@ -51,7 +56,7 @@ var fastTravelData;
 var weeklySet = 'bowmans_set';
 var weeklySetData = [];
 var date;
-var nocache = 108;
+var nocache = 109;
 
 var wikiLanguage = [];
 
@@ -86,8 +91,8 @@ function init() {
 
 
   enabledCategories = enabledCategories.filter(function(item) {
-    return item !== "random" && item !== "treasure";
-  });
+    return categoriesDisabledByDefault.indexOf(item) === -1;
+})
 
   if (typeof $.cookie('map-layer') === 'undefined')
     $.cookie('map-layer', 'Detailed', {
@@ -381,7 +386,6 @@ $('.open-submenu').on('click', function(e) {
 $(document).on('click', '.collectible', function() {
   var collectible = $(this);
 
-  collectible.toggleClass('disabled');
   MapBase.removeItemFromMap(collectible.data('type'));
 
   if ($("#routes").val() == 1)
@@ -462,6 +466,7 @@ window.addEventListener("DOMContentLoaded", MapBase.loadWeeklySet());
 window.addEventListener("DOMContentLoaded", MapBase.loadFastTravels());
 window.addEventListener("DOMContentLoaded", MapBase.loadMadamNazar());
 window.addEventListener("DOMContentLoaded", Treasures.load());
+window.addEventListener("DOMContentLoaded", Encounters.load());
 window.addEventListener("DOMContentLoaded", MapBase.loadMarkers());
 
 
