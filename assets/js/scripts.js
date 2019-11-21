@@ -125,15 +125,13 @@ function init() {
       $.each(categoryButtons, function(key, value) {
         $(value).children('span').addClass("disabled")
       });
-      $('*[data-type="american_flowers"]').children('span').removeClass('disabled');
-      $('*[data-type="antique_bottles"]').children('span').removeClass('disabled');
-      $('*[data-type="arrowhead"]').children('span').removeClass('disabled');
-      $('*[data-type="bird_eggs"]').children('span').removeClass('disabled');
-      $('*[data-type="family_heirlooms"]').children('span').removeClass('disabled');
-      $('*[data-type="card_cups"]').children('span').removeClass('disabled');
-      $('*[data-type="card_pentacles"]').children('span').removeClass('disabled');
-      $('*[data-type="card_swords"]').children('span').removeClass('disabled');
-      $('*[data-type="card_wands"]').children('span').removeClass('disabled');
+      $('*[data-type="coin"]').children('span').removeClass('disabled');
+      $('*[data-type="lost_bracelet"]').children('span').removeClass('disabled');
+      $('*[data-type="lost_earrings"]').children('span').removeClass('disabled');
+      $('*[data-type="lost_necklaces"]').children('span').removeClass('disabled');
+      $('*[data-type="lost_ring"]').children('span').removeClass('disabled');
+      $('*[data-type="nazar"]').children('span').removeClass('disabled');
+      $('*[data-type="fast_travel"]').children('span').removeClass('disabled');
       MapBase.addMarkers();
     }
     else {
@@ -142,7 +140,6 @@ function init() {
       enabledCategories = enabledCategories.filter(function(item) {
         return item !== "random" && item !== "treasure";
       });
-      /*
       $('*[data-type="american_flowers"]').children('span').removeClass('disabled');
       $('*[data-type="antique_bottles"]').children('span').removeClass('disabled');
       $('*[data-type="arrowhead"]').children('span').removeClass('disabled');
@@ -152,7 +149,6 @@ function init() {
       $('*[data-type="card_pentacles"]').children('span').removeClass('disabled');
       $('*[data-type="card_swords"]').children('span').removeClass('disabled');
       $('*[data-type="card_wands"]').children('span').removeClass('disabled');
-      */
       MapBase.addMarkers();
     }
   });
