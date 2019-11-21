@@ -134,7 +134,7 @@ function init() {
       MapBase.addMarkers();
     }
     else if (this.value == 0) {
-      //$.cookie("quick-markers", "false");
+      $.cookie("quick-markers", "false");
       enabledCategories = categories;
       enabledCategories = enabledCategories.filter(function(item) {
         return item !== "random" && item !== "treasure";
