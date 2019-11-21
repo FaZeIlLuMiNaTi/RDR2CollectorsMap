@@ -125,23 +125,6 @@ function init() {
       $.each(categoryButtons, function(key, value) {
         $(value).children('span').addClass("disabled")
       });
-      $('*[data-type="american_flowers"]').children('span').addClass('disabled');
-      $('*[data-type="antique_bottles"]').children('span').addClass('disabled');
-      $('*[data-type="arrowhead"]').children('span').addClass('disabled');
-      $('*[data-type="bird_eggs"]').children('span').addClass('disabled');
-      $('*[data-type="family_heirlooms"]').children('span').addClass('disabled');
-      $('*[data-type="card_cups"]').children('span').addClass('disabled');
-      $('*[data-type="card_pentacles"]').children('span').addClass('disabled');
-      $('*[data-type="card_swords"]').children('span').addClass('disabled');
-      $('*[data-type="card_wands"]').children('span').addClass('disabled');
-      MapBase.addMarkers();
-    }
-    else {
-      $.cookie("quick-markers", "false");
-      enabledCategories = categories;
-      enabledCategories = enabledCategories.filter(function(item) {
-        return item !== "random" && item !== "treasure";
-      });
       $('*[data-type="american_flowers"]').children('span').removeClass('disabled');
       $('*[data-type="antique_bottles"]').children('span').removeClass('disabled');
       $('*[data-type="arrowhead"]').children('span').removeClass('disabled');
@@ -151,6 +134,25 @@ function init() {
       $('*[data-type="card_pentacles"]').children('span').removeClass('disabled');
       $('*[data-type="card_swords"]').children('span').removeClass('disabled');
       $('*[data-type="card_wands"]').children('span').removeClass('disabled');
+      MapBase.addMarkers();
+    }
+    else {
+      $.cookie("quick-markers", "false");
+      enabledCategories = categories;
+      enabledCategories = enabledCategories.filter(function(item) {
+        return item !== "random" && item !== "treasure";
+      });
+      /*
+      $('*[data-type="american_flowers"]').children('span').removeClass('disabled');
+      $('*[data-type="antique_bottles"]').children('span').removeClass('disabled');
+      $('*[data-type="arrowhead"]').children('span').removeClass('disabled');
+      $('*[data-type="bird_eggs"]').children('span').removeClass('disabled');
+      $('*[data-type="family_heirlooms"]').children('span').removeClass('disabled');
+      $('*[data-type="card_cups"]').children('span').removeClass('disabled');
+      $('*[data-type="card_pentacles"]').children('span').removeClass('disabled');
+      $('*[data-type="card_swords"]').children('span').removeClass('disabled');
+      $('*[data-type="card_wands"]').children('span').removeClass('disabled');
+      */
       MapBase.addMarkers();
     }
   });
