@@ -115,12 +115,6 @@ function init() {
   var curDate = new Date();
   date = curDate.getUTCFullYear() + '-' + (curDate.getUTCMonth() + 1) + '-' + curDate.getUTCDate();
 
-  var doQuick = $.cookie("quick-markers");
-  if (doQuick == "true") {
-    $('#quick').value = 1;
-    $('#quick').change();
-  }
-
   $('#quick').on('change', function() {
     if (this.value == 1) {
       $.cookie("quick-markers", "true");
@@ -463,9 +457,18 @@ L.Icon.DataMarkup = L.Icon.extend({
   }
 });
 
+function applyQuick() {
+  var doQuick = $.cookie("quick-markers");
+  if (doQuick == "true") {
+    $('#quick').value = 1;
+    $('#quick').change();
+  }
+}
+
 window.addEventListener("DOMContentLoaded", init);
 window.addEventListener("DOMContentLoaded", MapBase.loadWeeklySet());
 window.addEventListener("DOMContentLoaded", MapBase.loadFastTravels());
 window.addEventListener("DOMContentLoaded", MapBase.loadMadamNazar());
 window.addEventListener("DOMContentLoaded", Treasures.load());
 window.addEventListener("DOMContentLoaded", MapBase.loadMarkers());
+window.addEventListener("DOMContentLoaded", applyQuick());
