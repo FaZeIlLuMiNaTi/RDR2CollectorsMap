@@ -467,8 +467,7 @@ window.addEventListener("DOMContentLoaded", MapBase.loadMarkers());
 
 $(document).ready(function() {
   if ($.cookie('quick-markers') == "true") {
-    $('#quick').value = 1;
+    $('#quick').val(1);
     $('#quick').change();
-    console.log("triggered this")
   }
 });
