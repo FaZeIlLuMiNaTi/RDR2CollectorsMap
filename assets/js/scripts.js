@@ -133,7 +133,7 @@ function init() {
       $('*[data-type="fast_travel"]').children('span').removeClass('disabled');
       MapBase.addMarkers();
     }
-    else {
+    else if (this.value == 0) {
       $.cookie("quick-markers", "false");
       enabledCategories = categories;
       enabledCategories = enabledCategories.filter(function(item) {
