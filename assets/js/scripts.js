@@ -464,9 +464,11 @@ window.addEventListener("DOMContentLoaded", MapBase.loadMadamNazar());
 window.addEventListener("DOMContentLoaded", Treasures.load());
 window.addEventListener("DOMContentLoaded", MapBase.loadMarkers());
 
-$(function() {
+
+$(document).ready(function() {
   if ($.cookie('quick-markers') == "true") {
     $('#quick').value = 1;
     $('#quick').change();
+    console.log("triggered this")
   }
 });
