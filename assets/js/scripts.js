@@ -4,6 +4,7 @@ var markers = [];
 var itemMarkersLayer = new L.LayerGroup();
 
 var searchTerms = [];
+var uniqueSearchMarkers = [];
 
 var resetMarkersDaily;
 
@@ -12,7 +13,7 @@ var collectedItems = [];
 var categories = [
   'american_flowers', 'antique_bottles', 'arrowhead', 'bird_eggs', 'coin', 'family_heirlooms', 'lost_bracelet',
   'lost_earrings', 'lost_necklaces', 'lost_ring', 'card_cups', 'card_pentacles', 'card_swords', 'card_wands', 'nazar',
-  'fast_travel', 'treasure', 'random', 'treasure_hunter', 'tree_map'
+  'fast_travel', 'treasure', 'random', 'treasure_hunter', 'tree_map', 'egg_encounter', 'grave_robber'
 ];
 
 var plantsCategories = [
@@ -20,7 +21,7 @@ var plantsCategories = [
   'creek_plum', 'blood_flower', 'chocolate_daisy', 'wisteria'
 ];
 var categoriesDisabledByDefault = [
-  'treasure', 'random', 'treasure_hunter', 'tree_map'
+  'treasure', 'random', 'treasure_hunter', 'tree_map', 'egg_encounter', 'grave_robber'
 ]
 var plantsDisabled = [];
 
@@ -56,7 +57,7 @@ var fastTravelData;
 var weeklySet = 'bowmans_set';
 var weeklySetData = [];
 var date;
-var nocache = 109;
+var nocache = 111;
 
 var wikiLanguage = [];
 
@@ -64,11 +65,6 @@ var debugTool = null;
 var isDebug = false;
 
 function init() {
-
-
-  var tempDate = new Date(2009, 10, 10); // 2009-11-10
-  //var tempMonth = tempDate.toLocaleString('default', { month: 'long' });
-  //alert(tempMonth);
 
   wikiLanguage['de-de'] = 'https://github.com/jeanropke/RDR2CollectorsMap/wiki/RDO-Sammler-Landkarte-Benutzerhandbuch-(Deutsch)';
   wikiLanguage['en-us'] = 'https://github.com/jeanropke/RDR2CollectorsMap/wiki/RDO-Collectors-Map-User-Guide-(English)';
@@ -302,6 +298,8 @@ $("#tools").on("change", function() {
     expires: 999
   });
   MapBase.addMarkers();
+  if ($("#routes").val() == 1)
+    Routes.drawLines();
 });
 
 $("#reset-markers").on("change", function() {
